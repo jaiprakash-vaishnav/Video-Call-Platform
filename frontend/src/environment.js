@@ -1,3 +1,3 @@
 
-const server = "https://videocallsplatform.vercel.app/";
+const server = "https://videocallsplatform.vercel.app";
 export default server;
