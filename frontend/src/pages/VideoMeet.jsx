@@ -5,7 +5,7 @@ import VideocamIcon from "@mui/icons-material/Videocam";
 import {CallEnd , Mic, MicOff, ScreenShare, StopScreenShare, Chat} from "@mui/icons-material";
 import VideocamOffIcon from "@mui/icons-material/VideocamOff";
 import io from "socket.io-client";
-const serverUrl = "http://localhost:8000";
+import serverUrl from "../environment.js";
 import styles from "../styles/videoComponent.module.css";
 var connections = {};
 

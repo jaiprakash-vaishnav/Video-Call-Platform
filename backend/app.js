@@ -1,3 +1,4 @@
+import 'dotenv/config.js';
 import express from "express";
 import {createServer} from "node:http";
 
@@ -12,7 +13,7 @@ const port = 8000;
 const server = createServer(app);
 const io = connectToSocket(server);
 
-app.set("port", (/*process.env.PORT ||*/ port));
+app.set("port", (process.env.PORT || port));
 app.use(cors());
 app.use(express.json({limit:"40kb"}));
 app.use(express.urlencoded({limit:"40kb", extended:true}));
@@ -25,9 +26,11 @@ app.use("/api/v1/users",userRoutes);
 //     res.send("working");
 // });
 
+const DBUrl = process.env.MONGODB_ATLAS;
+
 const start = async()=>{
     app.set("mongo_user");
-    const connectionDB = await mongoose.connect("mongodb+srv://video7731:video7731@cluster0.ijxou4b.mongodb.net/?appName=Cluster0");
+    const connectionDB = await mongoose.connect(DBUrl);
     console.log(`MongoDB connected Host : ${connectionDB.connection.host}`);
     server.listen(app.get("port"),()=>{
         console.log(`server is listing at ${port}`);
