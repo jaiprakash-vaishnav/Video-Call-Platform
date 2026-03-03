@@ -1,3 +1,3 @@
 
-const server = "https://video-call-backend-cq6v.onrender.com";
+const server = "https://videocallsplatform.vercel.app/";
 export default server;
